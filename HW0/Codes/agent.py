@@ -179,14 +179,28 @@ def ai_action(game_state):
     
     
     if (index==-1):
+        m_list = []
+        main = [12,6,7,8,11,13,16,17, 18]
         if (game_state[12] == None):
             index = 12
 
+        
         else:
             for check in condition:
                 if (game_state[check[0]],game_state[check[1]],game_state[check[2]],game_state[check[3]]) == (None, None, None, None):
-                    index = check[0]
+                    for i in range(4):
+                        if (check[i] not in m_list):
+                            m_list.append(check[i])
+            sign = 0
+            for j in range(len(main)):
+                if (main[j] in m_list):
+                    index = main[j]
+                    sign = 1
                     break
+            
+            if (len(m_list) != 0 and sign == 0):
+                index = m_list[0]
+
 
     try:
         if (index==-1):
