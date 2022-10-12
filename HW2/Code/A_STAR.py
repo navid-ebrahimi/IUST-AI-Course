@@ -1,7 +1,6 @@
 from pydoc import visiblename
 from Algorithm import Algorithm
 from Utility import Node
-from queue import PriorityQueue
 
 class A_STAR(Algorithm):
     def __init__(self, grid):
