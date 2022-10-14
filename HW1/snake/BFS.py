@@ -13,7 +13,7 @@ class BFS(Algorithm):
         for i in range(20):
             for j in range(20):
                 node = Node(i,j)
-                neighbors = super().get_neighbors(node)
+                neighbors = self.get_neighbors(node)
                 self.matrix[i].append(neighbors)
         self.snake = object
 
@@ -47,8 +47,8 @@ class BFS(Algorithm):
                     return path + [final]
                 else:
                     if (node not in visited 
-                        and super().inside_body(self.snake, node) == False
-                        and super().outside_boundary(node) == False):
+                        and self.inside_body(self.snake, node) == False
+                        and self.outside_boundary(node) == False):
                             visited.append(node)
                             queue.append([node, path + [node]])
         return path
