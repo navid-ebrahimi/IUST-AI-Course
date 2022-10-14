@@ -13,7 +13,7 @@ class DFS(Algorithm):
         for i in range(20):
             for j in range(20):
                 node = Node(i,j)
-                neighbors = super().get_neighbors(node)
+                neighbors = self.get_neighbors(node)
                 self.matrix[i].append(neighbors)
         self.snake = object
 
@@ -45,6 +45,6 @@ class DFS(Algorithm):
                 visited.append(vertex)
                 for node in self.matrix[int(vertex.x)][int(vertex.y)]:
                     if (node not in visited 
-                        and super().inside_body(self.snake, node) == False
-                        and super().outside_boundary(node) == False):
+                        and self.inside_body(self.snake, node) == False
+                        and self.outside_boundary(node) == False):
                         stack.append((node, path + [node]))
